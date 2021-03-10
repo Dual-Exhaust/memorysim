@@ -153,6 +153,20 @@ class dynamem():
     def addpartition(self, part):
         self.partitions.append(part)
 
+    def combinepartitions(self):
+        total = 0
+        tmpparts = []
+        for part in self.partitions:
+            if part.getstatus() != 'Loaded':
+                # print(self.partitions[x].getsize())
+                total += part.getsize()
+                # self.partitions.remove(part)
+            else:
+                tmpparts.append(part)
+        tmpparts.append(partition.partition(name=("P" + str(len(self.partitions))), size=total))
+
+        self.partitions = tmpparts
+
     # returns a list of jobs that were not used and are not using any memory, they are next in line to to get memory
     def firstfit(self, joblist):
         ondeck = []

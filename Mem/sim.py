@@ -91,6 +91,7 @@ class sim:
             self.mem.addpartition(part)
         # get the list of jobs that could not make it into memory
         self.ondeckjobs = self.mem.firstfit(self.jobs)
+        self.mem.combinepartitions()
         # grab the partitions after their data has been set by firstfit
         self.partitions = self.mem.getpartitions()
 
@@ -109,6 +110,7 @@ class sim:
         tmp = self.mem.nextfit(self.jobs, index)
         self.ondeckjobs = tmp[0]
         startindex = tmp[1]
+        self.mem.combinepartitions()
         # grab the partitions after their data has been set by nextfix
         self.partitions = self.mem.getpartitions()
 
@@ -126,6 +128,7 @@ class sim:
             self.mem.addpartition(part)
         # get the list of jobs that could not make it into memory
         self.ondeckjobs = self.mem.worstfit(self.jobs)
+        self.mem.combinepartitions()
         # grab the partitions after their data has been set by firstfit
         self.partitions = self.mem.getpartitions()
 
@@ -141,6 +144,7 @@ class sim:
             self.mem.addpartition(part)
         # get the list of jobs that could not make it into memory
         self.ondeckjobs = self.mem.bestfit(self.jobs)
+        self.mem.combinepartitions()
         # grab the partitions after their data has been set by firstfit
         self.partitions = self.mem.getpartitions()
 

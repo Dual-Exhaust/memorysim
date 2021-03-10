@@ -1,6 +1,6 @@
 # Covers partitions themselves and their properties
 class partition:
-    def __init__(self, name=-1, size=-1, address='NA', access='NA', accesssize='NA', status='Free'):
+    def __init__(self, name=-1, size=-1, address='0000', access='NA', accesssize='NA', status='Free'):
         # name of the partition
         self.name = name
         # size of the partition
