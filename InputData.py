@@ -175,7 +175,17 @@ while True:
         print('ON DECK JOBS: ', end='')
         print(*dworstondeck)
         print('========================================================================================================================')
-
+        # Dynamic Partition using next fit allocation
+        print('DYNAMIC NEXT FIT >> JOBS: ', end='')
+        print(*dworstondeck)
+        data = dynanext.dynanextfit(dnextondeck, dnextpartition, dlast)
+        dnextpartition = data[0]
+        dnextondeck = data[1]
+        dlast = data[2]
+        for part in dnextpartition:
+            print(part.getpartitiondata())
+        print('ON DECK JOBS: ', end='')
+        print(*dnextondeck)
     # if the user selects to remove a job
     elif userin == "R":
         # user inputs the job name
